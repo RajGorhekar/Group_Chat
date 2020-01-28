@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "826760973203",
+    "firebase_url": "https://group-chat-980c4.firebaseio.com",
+    "project_id": "group-chat-980c4",
+    "storage_bucket": "group-chat-980c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826760973203:android:6d95e43660bec7e7b53666",
+        "android_client_info": {
+          "package_name": "com.raj.GroupChat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826760973203-r1rmdjbuqp7p158u2200j6tsl8t54jnm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raj.GroupChat",
+            "certificate_hash": "753e5d34732a50534519b5ee5c0dccb7a251f7b9"
+          }
+        },
+        {
+          "client_id": "826760973203-j6u1dve6gju97v5rpr86pgl28op2vgl8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhiEb-K8DbNKjVWgB_vZNtDgptlZpoPww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826760973203-j6u1dve6gju97v5rpr86pgl28op2vgl8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
