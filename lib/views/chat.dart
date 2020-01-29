@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 
 final _firestore = Firestore.instance;
 FirebaseUser loggedInUser;
+double x = 0;
+String lu = 'user';
+
 
 class Chat extends StatefulWidget {
   static const String id = '/chat';
@@ -17,9 +20,8 @@ class Chat extends StatefulWidget {
 
 class _ChatState extends State<Chat> {
   final messageTextController = TextEditingController();
-  final _auth = (FirebaseAuth.instance);
   String messageText;
-
+  final _auth = (FirebaseAuth.instance);
 
   @override
   void initState() {
@@ -37,13 +39,6 @@ class _ChatState extends State<Chat> {
       }
     } catch (e) {
       print(e);
-    }
-  }
-
-  static void deleteAllMessages() async {
-    final messages = await _firestore.collection('messages').getDocuments();
-    for (var message in messages.documents) {
-      _firestore.collection('messages').document(message.documentID).delete();
     }
   }
 
@@ -73,7 +68,7 @@ class _ChatState extends State<Chat> {
                 color: Colors.white,
               ),
               onPressed: () {
-                _showDialog(context);
+                _showDialogfordelete(context);
               }),
         ],
         title: Center(
@@ -92,19 +87,20 @@ class _ChatState extends State<Chat> {
           children: <Widget>[
             Container(
               color: Colors.grey[300],
-              height: 25,
+              height: x,
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical : 2.0),
+                padding: const EdgeInsets.symmetric(vertical: 2.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'Logged in as : ' ,
+                      'Logged in as : ',
                       style: TextStyle(color: Colors.black),
                     ),
                     Text(
-                      loggedInUser.email,
-                      style: TextStyle(color: Colors.black ,fontWeight: FontWeight.bold),
+                      lu,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -127,6 +123,10 @@ class _ChatState extends State<Chat> {
                   ),
                   FlatButton(
                     onPressed: () {
+                      setState(() {
+                        x = 25;
+                        lu = loggedInUser.email;
+                      });
                       messageTextController.clear();
                       _firestore.collection('messages').add(
                         {
@@ -242,9 +242,7 @@ class MessageStream extends StatelessWidget {
   }
 }
 
-void _showDialog(
-  context,
-) {
+void _showDialogfordelete(context) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
